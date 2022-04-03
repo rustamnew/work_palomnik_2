@@ -8,15 +8,22 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Блог", 
+		"Новости", 
 		"/blog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Контакты", 
-		"/contacts/", 
+		"Расписание богослужений", 
+		"/raspisanie-bogosluzheniy/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Православный календарь", 
+		"/pravoslavnyy-kalendar/", 
 		Array(), 
 		Array(), 
 		"" 

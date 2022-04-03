@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Пожертвование";
+$arDirProperties = Array(
+
+);
+?>

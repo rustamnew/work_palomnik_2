@@ -4,9 +4,9 @@ $APPLICATION->SetTitle("Главная");
 ?>
 
 <?$APPLICATION->IncludeComponent(
-	"codekeepers:news.list",
-	"about",
-	Array(
+	"codekeepers:news.list", 
+	"about", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -27,7 +27,11 @@ $APPLICATION->SetTitle("Главная");
 		"DISPLAY_PICTURE" => "N",
 		"DISPLAY_PREVIEW_TEXT" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(0=>"DETAIL_PICTURE",1=>"",),
+		"FIELD_CODE" => array(
+			0 => "DETAIL_TEXT",
+			1 => "DETAIL_PICTURE",
+			2 => "",
+		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => $GLOBALS["codekeepers_block_id"]["content_about_id"],
@@ -46,7 +50,30 @@ $APPLICATION->SetTitle("Главная");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(0=>"view_mode",1=>"title",2=>"counter_value",3=>"name",4=>"subtitle",5=>"counter_title",6=>"url1_value",7=>"url1_name",8=>"url2_value",9=>"url2_name",10=>"url3_value",11=>"url3_name",12=>"url4_value",13=>"url4_name",14=>"url5_value",15=>"url5_name",16=>"url6_value",17=>"url6_name",18=>"url",19=>"text",20=>"",),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "view_mode",
+			2 => "title",
+			3 => "counter_value",
+			4 => "name",
+			5 => "subtitle",
+			6 => "counter_title",
+			7 => "url1_value",
+			8 => "url1_name",
+			9 => "url2_value",
+			10 => "url2_name",
+			11 => "url3_value",
+			12 => "url3_name",
+			13 => "url4_value",
+			14 => "url4_name",
+			15 => "url5_value",
+			16 => "url5_name",
+			17 => "url6_value",
+			18 => "url6_name",
+			19 => "url",
+			20 => "text",
+			21 => "",
+		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -58,8 +85,11 @@ $APPLICATION->SetTitle("Главная");
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N"
-	)
+		"STRICT_SECTION_CHECK" => "N",
+		"SHOW_MODE" => "one",
+		"SHOW_BUTTON" => "Y"
+	),
+	false
 );?>
 <?$APPLICATION->IncludeComponent(
 	"codekeepers:news.list", 

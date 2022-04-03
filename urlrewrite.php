@@ -48,20 +48,20 @@ $arUrlRewrite=array (
     'PATH' => '/team/index.php',
     'SORT' => 100,
   ),
-  28 => 
-  array (
-    'CONDITION' => '#^/blog/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/blog/index.php',
-    'SORT' => 100,
-  ),
   30 => 
   array (
     'CONDITION' => '#^/shop/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/shop/index.php',
+    'SORT' => 100,
+  ),
+  31 => 
+  array (
+    'CONDITION' => '#^/blog/#',
+    'RULE' => '',
+    'ID' => 'codekeepers:news',
+    'PATH' => '/blog/index.php',
     'SORT' => 100,
   ),
 );
