@@ -13,7 +13,6 @@
 $this->setFrameMode(true);
 ?>
 
-
 <div class="sec-title">
 	<div class="row">
 		<div class="col-lg-5">
