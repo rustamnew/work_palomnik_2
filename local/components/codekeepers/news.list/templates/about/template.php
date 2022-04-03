@@ -31,9 +31,9 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 				<div class="col-lg-6">
 					<div class="text-box">
 						<div class="sec-title">
-							<h2><?=$arItem["PROPERTIES"]["name"]["VALUE"];?></h2>
-							<h3><?=$arItem["PROPERTIES"]["title"]["VALUE"];?></h3>
-							<p><?=$arItem["PROPERTIES"]["subtitle"]["VALUE"];?></p>
+							<h2><?=$arItem["PROPERTIES"]["name1"]["VALUE"];?></h2>
+							<h3><?=$arItem["PROPERTIES"]["title1"]["VALUE"];?></h3>
+							<p><?=$arItem["DETAIL_TEXT"]?></p>
 						</div>
 						<ul>
 							<?if($arItem["PROPERTIES"]["url1_name"]["VALUE"]):?>
@@ -62,7 +62,7 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 						</ul>
 
 						<?if($arParams["SHOW_BUTTON"] == 'Y' || !$arParams["SHOW_BUTTON"]):?>
-							<a href="<?=SITE_DIR?>about/" class="btn-1 btn-3"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
+							<a href="<?=SITE_DIR?>about/" class="btn-1 btn-4"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
 						<?endif;?>
 					</div>
 				</div>
@@ -93,35 +93,19 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 						<div class="about-img">
 							<img class="img-fluid" src="<?echo CFile::GetPath($arItem["PROPERTIES"]["image"]["VALUE"]);?>" alt="03 About">
 						</div>
-						<div class="statistic-item">
-							<div class="statistic-item-image">
-								<?$path = CFile::GetPath($arItem['PROPERTIES']['counter_icon']['VALUE']);?>
 
-								<?if (stristr($path, '.svg')):?>
-									<?$svg_file = file_get_contents( $_SERVER["DOCUMENT_ROOT"].$path);?>
-									<?print_r($svg_file);?>
-								<?else:?>
-									<img src=<?$path?>>
-								<?endif;?>
-							</div>
-							<div class="content">
-								<div class="counter"><?=$arItem["PROPERTIES"]["counter_value"]["VALUE"];?></div>
-								<div class="counter-name"><?=$arItem["PROPERTIES"]["counter_title"]["VALUE"];?></div>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="text-box">
 						<div class="sec-title">
-							<h2><?=$arItem["PROPERTIES"]["name"]["VALUE"];?></h2>
-							<h3><?=$arItem["PROPERTIES"]["title"]["VALUE"];?></h3>
-							<p><?=$arItem["PROPERTIES"]["subtitle"]["VALUE"];?></p>
+							<h2><?=$arItem["PROPERTIES"]["name2"]["VALUE"];?></h2>
+							<h3><?=$arItem["PROPERTIES"]["title2"]["VALUE"];?></h3>
+							<p><?=$arItem["PREVIEW_TEXT"]?></p>
 						</div>
-						<p><?=$arItem["PREVIEW_TEXT"]?></p>
 
 						<?if($arParams["SHOW_BUTTON"] == 'Y' || !$arParams["SHOW_BUTTON"]):?>
-							<a href="<?=SITE_DIR?>about/" class="btn-1 btn-3"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
+							<a href="<?=SITE_DIR?>about/" class="btn-1 btn-4"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
 						<?endif;?>
 					</div>
 				</div>

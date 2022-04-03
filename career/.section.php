@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Карьера";
-$arDirProperties = Array(
-
-);
-?>

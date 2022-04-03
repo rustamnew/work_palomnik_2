@@ -1,6 +1,0 @@
-<?
-$sSectionName = "Тарифы";
-$arDirProperties = Array(
-
-);
-?>

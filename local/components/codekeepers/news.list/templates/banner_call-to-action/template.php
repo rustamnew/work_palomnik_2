@@ -29,7 +29,7 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 				<div class="sec-title text-center">
 					<h3><?=$arItem["PROPERTIES"]["title"]["VALUE"];?></h3>
 					<p><?=$arItem["PROPERTIES"]["subtitle"]["VALUE"];?></p>
-					<a class="<?if(!$arItem["PROPERTIES"]["url"]["VALUE"]):?>summonFormButton <?endif;?>btn-1" href="<?=$arItem["PROPERTIES"]["url"]["VALUE"]?>"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
+					<a class="<?if(!$arItem["PROPERTIES"]["url"]["VALUE"]):?>summonFormButton <?endif;?>btn-1 btn-4" href="<?=$arItem["PROPERTIES"]["url"]["VALUE"]?>"><?=$arItem["PROPERTIES"]["text"]["VALUE"];?></a>
 				</div>
 			</div>
 		</div>

@@ -34,17 +34,17 @@ $color3 = $GLOBALS['global_info']['color3'];
     .btn-3:after {
         background-color: <?=$color1;?>;
     }
-    .btn-4{
-        color: <?=$color1;?>;
+    .btn-4{ 
+        background-color: <?=$color1;?>;
     }
-    .btn-4:after{
-        background-color: <?=$color2;?>;
+    .btn-4:hover{
+        color: <?=$color1;?>;
     }
     .sec-title h2{
         color: <?=$color1;?>;
     }
     .sec-title h3{
-        color: <?=$color2;?>;
+        /*color: <?=$color2;?>;*/
     }
     .lds-ring div {
         border: 8px solid <?=$color1;?>;
@@ -72,7 +72,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     background-color: <?=$color1;?>;
 }
 .nav-bar.active .nav-bar-link ul li a{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .nav-bar .nav-bar-link ul li a:hover,
 .nav-bar .nav-bar-link ul li a.color-active,
@@ -80,7 +80,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     color: <?=$color1;?>;
 }
 .nav-bar .nav-bar-link > ul ul.level-2 li a{
-    color: <?=$color3;?>;
+    /*color: <?=$color3;?>;*/
 }
 .nav-bar .nav-bar-link > ul ul ul li:hover a{
     color: <?=$color1;?> !important;
@@ -114,7 +114,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 }
 .menu-box .inner-menu .contact-info h4,
 .menu-box .inner-menu .follow-us h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .menu-box .inner-menu .contact-info .contact-box i{
     color: <?=$color1;?>;
@@ -148,7 +148,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 }
 .fancybox .fancybox-item h4,
 .services .services-item h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .about .text-box ul li:hover,
 .benfits li:hover{
@@ -229,7 +229,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 
 
 .team-item .text-box h5{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 
 }
 .team-item .text-box span{
@@ -252,13 +252,13 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     fill: <?=$color1;?>;
 } 
 .skills h3{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .skills .skill-box .skill-line .line{
     background-color: <?=$color1;?>;
 }
 .quote .sec-title h3{
-    color: <?=$color2;?>
+    /*color: <?=$color2;?>*/
 }
 .quote .quote-item i{
     color: <?=$color1;?>;
@@ -269,13 +269,13 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 
 
 .pricing-item .item-top h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .pricing-item.active .item-top h4{
     color: <?=$color1;?>;
 }
 .pricing-item .item-top .price-number h5{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .pricing-item .item-top .price-number span{
     color: <?=$color2;?>;
@@ -307,7 +307,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     border: 3px solid <?=$color1;?>;
 }
 .owl-testimonial .testimonial-item .item-name h5{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .owl-testimonial-2 .box-item .text-box::after {
     background-color: <?=$color1;?>;
@@ -335,7 +335,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     border: 3px solid <?=$color1;?>;
 }
 .testimonial-grid .testimonial-item .item-name h5{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .testimonial-grid .box-item .text-box::after {
     background-color: <?=$color1;?>;
@@ -359,7 +359,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     color: <?=$color2;?>;
 }
 .blog-item .text-box h5{
-    color: <?=$color2;?>;
+   /* color: <?=$color2;?>;*/
 }
 .blog-item .text-box .title-blog:hover,
 .blog-item .text-box h5:hover{
@@ -420,7 +420,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 }
 
 .services-head h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 
 .services-list li.active a,
@@ -429,17 +429,17 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
 }
 .brochures h5,
 .single-services-box h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 
 .call-back{
     background-color: <?=$color1;?>;
 }
 .single-services-box h3{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .item-careers h4 a{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .item-careers h4:hover a{
     color: <?=$color1;?>;
@@ -457,7 +457,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     background-color: <?=$color1;?>;
 }
 .shop-item .item-text .open-item-shop h4{
-    color: <?=$color2;?>;
+    color: /*<?=$color2;?>;*/
 }
 .shop-item .item-text span{
     color: <?=$color1;?>;
@@ -484,7 +484,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     color: <?=$color1;?>;
 }
 .page-404-area h2{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .page-404-area h2 span{
     color: <?=$color1;?>;
@@ -498,7 +498,7 @@ header.navs-3 .nav-bar .nav-bar-link ul li a:hover{
     border-color: <?=$color1;?>;
 }
 .widget .widget-title h3{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .widget .widget-body .search input:focus{
     border-color: <?=$color1;?>;
@@ -606,7 +606,7 @@ body.active-dark-mode{
     background: <?=$color3;?>;
 }
 .active-dark-mode .quote .sec-title h3{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 .active-dark-mode .testimonial,
 .active-dark-mode .faq-quote{
@@ -789,7 +789,7 @@ header.navs-2 .info-nav:hover .contact-nav p {
     fill: <?=$color1;?>;
 }
 .detail-item-content {
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 form input.form-submit-button,
 .quote form input.form-submit-button{
@@ -821,7 +821,10 @@ form input.form-submit-button,
     color: #FFF;
 }
 .services-block .services-block-item h4{
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
+}
+.services-block .services-block-item-image svg {
+    fill: <?=$color1;?>;
 }
 .services-section-button.active{
     background-color: <?=$color2;?>;
@@ -843,6 +846,6 @@ form input.form-submit-button,
     background-color: <?=$color1;?>;
 }
 .career-detail-page h4 {
-    color: <?=$color2;?>;
+    /*color: <?=$color2;?>;*/
 }
 </style>

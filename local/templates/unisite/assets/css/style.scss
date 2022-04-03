@@ -91,7 +91,8 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(11 12 38 / 0.5);
+    //background-color: rgb(11 12 38 / 0.5);
+    background-color: rgba(173, 143, 105, 0.2);
 }
 .btn-1{
 
@@ -158,12 +159,16 @@ p {
 .btn-3:after{
     background-color: $theme-color1;
 }
-.btn-4{
-    color: $theme-color1;
-    background-color: #FFF;
+.btn-4{ 
+    color: #FFF;
+    background-color: $theme-color1;
 }
 .btn-4:after{
-    background-color: $theme-color2;
+    content: none;
+}
+.btn-4:hover{
+    color: $theme-color1;
+    background-color: #FFF;
 }
 .btn-smaller {
     padding: 5px 20px;
@@ -390,6 +395,10 @@ p {
     transform: translateY(30px);
     opacity: 0;
     visibility: hidden;
+}
+.nav-bar .nav-bar-link > ul ul.level-2 {
+    display: flex;
+    flex-direction: column;
 }
 .nav-bar .nav-bar-link > ul li:hover > ul{
     -webkit-transform: translateY(00px);
@@ -952,8 +961,6 @@ p {
 }
 .about .text-box a.btn-1{
     margin-top: 30px;
-    display: block;
-    width: 180px;
 }
 .about .one{
     margin-top: 28px;
@@ -1135,7 +1142,8 @@ p {
     width: 100%;
 }
 .bg-section .overlay{
-    background-color: rgb(11 12 38 / 0.8);
+    //background-color: rgb(11 12 38 / 0.8);
+    background-color: rgba(173, 143, 105, 0.5);
 }
 .provide .sec-title h3,
 .faq-quote .sec-title h3{
@@ -2321,6 +2329,10 @@ p {
     overflow: hidden;
     border-radius: 3px;
 }
+.blog-item .img-box img{
+    width: 100%;
+}
+
 .blog-item:hover .img-box .open-post img{
     -webkit-transform: scale(1.3);
         -ms-transform: scale(1.3);
@@ -2414,32 +2426,34 @@ p {
 }
 .footer .logo p{
     margin: 30px 0 20px 0;
-    color: #F9F9F9;
+    color: #505050;
 }
 .footer h4 {
-    color: #FFF;
+    color: #505050;
     font-weight: 500;
     margin-bottom: 5px;
     font-size: 16px;
 }
 .footer p {
-    color: #FFF;
+    color: #505050;
+}
+.footer a {
+    color: #505050;
 }
 
 .footer p a:hover {
     color: $theme-color1;
 }
 .footer-title h4{
-    color: #FFF;
+    color: #505050;
     font-size: 16px;
-    /*text-transform: capitalize;*/
     line-height: 1.2;
     margin-bottom: 25px;
 }
 .footer .links li a{
     display: inline-block;
     position: relative;
-    color: #F4F4F4;
+    color: #505050;
     font-size: 14px;
     line-height: 32px;
 }
@@ -2459,7 +2473,7 @@ p {
     margin-bottom: 20px;
 }
 .footer .newsletter p{
-    color: #F4F4F4;
+    color: #505050;
     margin-bottom: 26px;
     font-size: 15px;
 }
@@ -5169,7 +5183,12 @@ form#feedback-form-contacts .captcha-wrap{
     flex-direction: column;
 }
 
-
+.saint-href {
+    color: #c66 !important;
+}
+.saint-href:hover {
+    color: #f76161 !important;
+}
 
 
 

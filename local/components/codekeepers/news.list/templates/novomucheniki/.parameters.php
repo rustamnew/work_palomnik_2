@@ -20,29 +20,11 @@ $arTemplateParameters = array(
 	"SHOW_MODE" => Array(
 		"NAME" => GetMessage("SHOW_MODE"),
 		"TYPE" => "LIST",
-		"DEFAULT" => "one",
+		"DEFAULT" => "normal",
 		"VALUES" => array(
-			"one" => GetMessage("SHOW_MODE_ONE"),
-			"two" => GetMessage("SHOW_MODE_TWO"),
+			"normal" => GetMessage("SHOW_MODE_NORMAL"),
 			"slider" => GetMessage("SHOW_MODE_SLIDER"),
-		),
-		"REFRESH" => "Y"
+		)
 	),
-
 );
-
-if ($arCurrentValues["SHOW_MODE"] == "one" || !$arCurrentValues["SHOW_MODE"])
-{
-	$arTemplateParameters["WIDTH"] = array(
-		"NAME" => GetMessage("WIDTH"),
-		"TYPE" => "STRING",
-		"DEFAULT" => "300px",
-	);
-
-	$arTemplateParameters["MARGIN"] = array(
-		"NAME" => GetMessage("MARGIN"),
-		"TYPE" => "STRING",
-		"DEFAULT" => "10px",
-	);
-}
 ?>
