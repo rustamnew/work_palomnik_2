@@ -28,7 +28,7 @@ $this->setFrameMode(true);
 
 <table 	border="1" 
 		bordercolor="#ccc" 
-		cellpadding="5"
+		cellpadding="12"
 		cellspacing="0" 
 		style="border-collapse:collapse;" 
 		width="100%">
@@ -40,24 +40,24 @@ $this->setFrameMode(true);
 		?>
 
 		<tr id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-			<td class="table_item">
-				<p style="text-align: center;">
+			<td class="table_item<?if ($arItem["PROPERTIES"]["red"]["VALUE"] == 'Y'):?> red<?endif;?>">
+				<p>
 					<?echo FormatDateFromDB($arItem["PROPERTIES"]["date"]["VALUE"], 'SHORT');?>
 				</p>
 
-				<p style="text-align: center;">
+				<p>
 					<?echo FormatDate("l", MakeTimeStamp($arItem["PROPERTIES"]["date"]["VALUE"]));?>
 				</p>
 			</td>
 
-			<td class="table_item">
-				<p style="text-align: center;">
+			<td class="table_item<?if ($arItem["PROPERTIES"]["red"]["VALUE"] == 'Y'):?> red<?endif;?>">
+				<p>
 					<?=$arItem["PROPERTIES"]["title"]["~VALUE"]["TEXT"];?>
 				</p>
 			</td>
 
-			<td class="table_item">	
-				<p style="text-align: center;">
+			<td class="table_item<?if ($arItem["PROPERTIES"]["red"]["VALUE"] == 'Y'):?> red<?endif;?>">	
+				<p>
 					<span><?echo FormatDate("G:i", MakeTimeStamp($arItem["PROPERTIES"]["date"]["VALUE"]));?></span>
 				</p>
 			</td>

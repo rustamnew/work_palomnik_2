@@ -2764,7 +2764,7 @@ p {
 
 /* :: Breadcrumb Header */
 .breadcrumb-header {
-    padding: 120px 0;
+    padding: 200px 0 120px;
     background-image: url(../images/header/04_header.jpg);
     color: #FFF;
     position: relative;
@@ -5524,6 +5524,15 @@ form#feedback-form-contacts .captcha-wrap {
 .footer-contacts p {
     display: flex;
     flex-direction: column;
+}
+
+.table_item p {
+    text-align: center;
+}
+
+.table_item.red p {
+    text-align: center;
+    color: #f82f2f !important;
 }
 
 .saint-href {
