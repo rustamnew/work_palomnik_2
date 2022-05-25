@@ -93,7 +93,7 @@ $APPLICATION->SetTitle("Главная");
 );?>
 <?$APPLICATION->IncludeComponent(
 	"codekeepers:news.list", 
-	"gallery", 
+	"gallery-list", 
 	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
@@ -107,7 +107,7 @@ $APPLICATION->SetTitle("Главная");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "gallery",
+		"COMPONENT_TEMPLATE" => "gallery-list",
 		"DETAIL_URL" => "",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "N",

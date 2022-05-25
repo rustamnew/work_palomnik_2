@@ -113,3 +113,6 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 		</div>
 	</section>
 <?endif;?>
+
+
+

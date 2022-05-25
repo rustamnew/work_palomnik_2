@@ -431,7 +431,7 @@ p {
     visibility: hidden;
 }
 
-.nav-bar .nav-bar-link > ul ul.level-2 {
+.nav-bar .nav-bar-link > ul ul {
     display: flex;
     flex-direction: column;
 }
@@ -5397,6 +5397,14 @@ form#feedback-form-contacts .captcha-wrap {
     margin: 0;
 }
 
+.row.donate {
+    display: none;
+}
+
+.row.donate.active {
+    display: flex;
+}
+
 .text-box-quote {
     padding: 6px 18px;
     background-color: #2652DC;
@@ -5541,4 +5549,87 @@ form#feedback-form-contacts .captcha-wrap {
 
 .saint-href:hover {
     color: #f76161 !important;
+}
+
+.team-item.school {
+    padding: 15px 20px;
+}
+.team-item.school .icon img {
+    height: 48px;
+}
+.team-item.school .icon svg {
+    height: 48px;
+    width: 48px;
+    fill: #666666;
+}
+.team-item.school .text-box {
+    padding: 0;
+}
+.team-item.school .text-box h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #C89D66;
+    text-transform: uppercase;
+}
+.team-item.school .text-box h4 {
+    color: #262B3E;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.gallery-page .licence-list-grid {
+    margin-bottom: 100px;
+}
+
+.mh215 img {
+    height: 215px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery-slider img {
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+}
+
+.calendar-page .owl-stage-outer {
+    overflow: hidden;
+}
+.calendar-page .owl-stage {
+    display: flex;
+}
+.calendar-page .owl-nav.disabled {
+    display: none;
+}
+.calendar-page .azbyka-saints a {
+    color: #c66;
+}
+.calendar-page .azbyka-saints .days-image {
+    font-size: 0;
+    margin-bottom: 30px;
+}
+
+.friends {
+    color: #0B0C26;
+}
+.friends h3 {
+    margin-bottom: 30px;
+}
+.friends ul {
+    font-size: 16px;
+}
+.friends ul li {
+    margin-bottom: 8px;
+}
+.friends ul li:last-child {
+    margin-bottom: 0;
+}
+.friends ul li a {
+    color: #007bff;
+}
+
+.days-image img {
+    height: 200px;
 }

@@ -13,102 +13,34 @@
 $this->setFrameMode(true);
 ?>
 
-<?if($arParams["SHOW_MODE"] == 'slider'):?>
 
-<section class="case-study py-100">
+
+<section class="case-study case-study-page gallery-page py-100">
 	<div class="container">
-		<div class="sec-title">
-			<div class="row">
-				<div class="col-lg-5">
-					<h2><?=$arParams["NAME"]?></h2>
-					<h3><?=$arParams["TITLE"];?></h3>
-				</div>
-				<div class="col-lg-5 d-flex align-items-center">
-					<p><?=$arParams["SUBTITLE"]?></p>
-				</div>
-			</div>
+		<div class="sec-title sec-title-2 text-center">
+			<?if($arResult["PROPERTIES"]["name"]["VALUE"]):?><h2><?=$arResult["PROPERTIES"]["name"]["VALUE"]?></h2><?endif;?>
+			<?if($arResult["PROPERTIES"]["title"]["VALUE"]):?><h3><?=$arResult["PROPERTIES"]["title"]["VALUE"]?></h3><?endif;?>
+			<?if($arResult["PROPERTIES"]["subtitle"]["VALUE"]):?><p><?=$arResult["PROPERTIES"]["subtitle"]["VALUE"]?></p><?endif;?>
 		</div>
-		<div class="owl-gallery owl-carousel owl-theme">
-			<?foreach($arResult["ITEMS"] as $arItem):?>
-				<?
-				$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-				$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-				?>
 
-                <div class="case-item" 
-                    id="<?=$this->GetEditAreaId($arItem['ID']);?>" 
-                    data-fancybox="gallery" 
-                    data-src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" 
-                    data-caption="<?=$arItem["NAME"]?>">
-
-                    <img class="gallery-item-img" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="01 Case Study">
-				</div>
+		<div class="licence-list-grid">
+			<?foreach($arResult["PROPERTIES"]["images"]["VALUE"] as $arItem):?>
+				<a data-fancybox="gallery" data-src="<?echo CFile::GetPath($arItem);?>" data-caption="<?=$arItem["NAME"]?>" class="gallery-gridify-item">
+					<img id="<?=$this->GetEditAreaId($arItem['ID']);?>" src="<?echo CFile::GetPath($arItem);?>" alt="image" loading="lazy">
+				</a>
 			<?endforeach;?>
 		</div>
 	</div>
 </section>
 
-<?else:?>
 
 
 
 
-<section class="case-study case-study-page gallery-page py-100">
-	<div class="container">
-		<?if($arParams["NAME"] || $arParams["TITLE"] || $arParams["SUBTITLE"]):?>
-			<div class="sec-title">
-				<div class="row">
-					<div class="col-lg-5">
-						<?if($arParams["NAME"]):?><h2><?=$arParams["NAME"]?></h2><?endif;?>
-						<?if($arParams["TITLE"]):?><h3><?=$arParams["TITLE"]?></h3><?endif;?>
-					</div>
-					<div class="col-lg-5 d-flex align-items-center">
-						<?if($arParams["SUBTITLE"]):?><p><?=$arParams["SUBTITLE"]?></p><?endif;?>
-					</div>
-				</div>
-			</div>
-		<?endif;?>
-		<div class="licence-list<?if($arParams["SHOW_MODE"] == 'one' || !$arParams["SHOW_MODE"]):?>-grid<?endif;?>">
-			<?if($arParams["SHOW_MODE"] == 'one' || !$arParams["SHOW_MODE"]):?>
-				<?foreach($arResult["ITEMS"] as $arItem):?>
-					<?
-					$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-					$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-					?>
-					<a data-fancybox="gallery" data-src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" data-caption="<?=$arItem["NAME"]?>" class="gallery-gridify-item">
-						<img id="<?=$this->GetEditAreaId($arItem['ID']);?>" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="image">
-					</a>
-				<?endforeach;?>
 
-			<?elseif($arParams["SHOW_MODE"] == 'two'):?>
-				<?foreach($arResult["ITEMS"] as $arItem):?>
-					<?
-					$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-					$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-					?>
-					<div class="col-md-6 col-lg-4 mb20">
-						<div class="case-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>" data-fancybox="gallery" data-src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" data-caption="<?=$arItem["NAME"]?>">
-							<img class="img-fluid gallery-item-img" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="01 Case Study">
-							<div class="text-box d-flex align-content-between flex-wrap">
-								<div class="content-text">
-									<h4><a href="#"><?=$arItem["NAME"]?></a></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				<?endforeach;?>
-			<?endif;?>
-		</div>
 
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-			<div class="col-md-12">
-				<?=$arResult["NAV_STRING"]?>
-			</div>
-		<?endif;?>
-	</div>
-</section>
 
-<?endif;?>
+
 
 
 <script>
@@ -230,4 +162,3 @@ $this->setFrameMode(true);
 
     gallery(width, margin)
 </script>
-

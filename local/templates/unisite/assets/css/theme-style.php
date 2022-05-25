@@ -848,4 +848,7 @@ form input.form-submit-button,
 .career-detail-page h4 {
     /*color: <?=$color2;?>;*/
 }
+.nav-bar.active {
+    background-color: <?=$color2;?>;
+}
 </style>

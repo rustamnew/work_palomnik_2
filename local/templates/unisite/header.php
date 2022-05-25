@@ -12,7 +12,15 @@ $searchTags["%TAGS"] = $_REQUEST["tags"];
 
 
 <?
-$GLOBALS += CUnisiteMain::MainProperty($GLOBALS["codekeepers_block_id"]["settings_main_id"], $GLOBALS["codekeepers_block_id"]["settings_main_element_id"]);
+/*$GLOBALS += CUnisiteMain::MainProperty($GLOBALS["codekeepers_block_id"]["settings_main_id"], $GLOBALS["codekeepers_block_id"]["settings_main_element_id"]);*/
+
+$GLOBALS['global_info'];
+if(CModule::IncludeModule('iblock')) {
+    $db_props = CIBlockElement::GetProperty($GLOBALS["codekeepers_block_id"]["settings_main_id"], $GLOBALS["codekeepers_block_id"]["settings_main_element_id"], 'sort', 'asc', array());
+    while($ar_props = $db_props->Fetch()){
+        $GLOBALS["global_info"][$ar_props["CODE"]] = $ar_props["VALUE"];
+    }
+}
 ?>
 
 
@@ -28,7 +36,8 @@ $GLOBALS += CUnisiteMain::MainProperty($GLOBALS["codekeepers_block_id"]["setting
 		<title><?$APPLICATION->ShowTitle(false);?></title>
 
 		<!-- :: Favicon -->
-		<link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicon.png">
+		<!--<link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicon.png">-->
+		<link rel="icon" type="image/vnd.microsoft.icon" href="<?=SITE_TEMPLATE_PATH?>/assets/images/favicon.ico">
 
 		<!-- :: Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,7 +50,30 @@ $GLOBALS += CUnisiteMain::MainProperty($GLOBALS["codekeepers_block_id"]["setting
         <![endif]-->
 
 		<?
-        CModule::IncludeModule("codekeepers.unisite"){CUnisiteMain::MainHeaderAssets()};
+        //CModule::IncludeModule("codekeepers.unisite"){CUnisiteMain::MainHeaderAssets()};
+        Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/bootstrap.min.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/fonts/fontawesome/css/all.min.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/fonts/flaticon/css/flaticon.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/owl.carousel.min.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/owl.theme.default.min.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/lity.min.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/fancybox.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/transitions.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/animate.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/style.css');
+		Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/responsive.css');
+		
+
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery-3.5.1.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/popper.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/bootstrap.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/owl.carousel.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/lity.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.waypoints.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/jquery.counterup.min.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/fancybox.umd.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/gridify.js');
+		Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/assets/js/main.js');
         $APPLICATION->ShowHead();
         ?>
     </head>
@@ -49,6 +81,7 @@ $GLOBALS += CUnisiteMain::MainProperty($GLOBALS["codekeepers_block_id"]["setting
 		<?$APPLICATION->ShowPanel();?>
 		<div class="page-wrapper">
 			<!-- :: Loading -->
+
 			<div class="loading">
 				<div class="loading-box">
 					<div class="lds-ring">

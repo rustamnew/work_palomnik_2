@@ -90,43 +90,6 @@ $APPLICATION->SetTitle("О нас");
 	false
 );?>
 <?$APPLICATION->IncludeComponent(
-	"codekeepers:catalog.section.list", 
-	"services-block", 
-	array(
-		"ADD_SECTIONS_CHAIN" => "N",
-		"CACHE_FILTER" => "N",
-		"CACHE_GROUPS" => "Y",
-		"CACHE_TIME" => "36000000",
-		"CACHE_TYPE" => "A",
-		"COUNT_ELEMENTS" => "Y",
-		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
-		"FILTER_NAME" => "sectionsFilter",
-		"IBLOCK_ID" => $GLOBALS["codekeepers_block_id"]["content_services_id"],
-		"IBLOCK_TYPE" => "content",
-		"SECTION_CODE" => "",
-		"SECTION_FIELDS" => array(
-			0 => "",
-			1 => "",
-		),
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
-		"SECTION_URL" => "",
-		"SECTION_USER_FIELDS" => array(
-			0 => "",
-			1 => "UF_ICON",
-			2 => "",
-		),
-		"SHOW_PARENT_NAME" => "Y",
-		"TOP_DEPTH" => "2",
-		"VIEW_MODE" => "LINE",
-		"NAME" => "Услуги",
-		"TITLE" => "Что мы можем предложить",
-		"SUBTITLE" => "Решения принимаются профессионалами. Мы гарантируем высокое качество оказания услуг.",
-		"TEXT_LENGTH" => "150",
-		"COMPONENT_TEMPLATE" => "services-block"
-	),
-	false
-);?>
-<?$APPLICATION->IncludeComponent(
 	"codekeepers:news.list",
 	"team-list",
 	Array(
@@ -158,7 +121,6 @@ $APPLICATION->SetTitle("О нас");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
 		"MESSAGE_404" => "",
-		"NAME" => "Команда",
 		"NEWS_COUNT" => "12",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
@@ -184,8 +146,10 @@ $APPLICATION->SetTitle("О нас");
 		"SORT_ORDER1" => "ASC",
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N",
-		"SUBTITLE" => "Решения принимаются профессионалами. Мы гарантируем высокое качество оказания услуг.",
-		"TITLE" => "Наши специалисты"
+		"NAME" => "НОВОМУЧЕНИКИ",
+		"TITLE" => "Новомученики и исповедники Одинцовские",
+		"SUBTITLE" => "",
+		
 	)
 );?>
 <?$APPLICATION->IncludeComponent(

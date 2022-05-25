@@ -309,6 +309,30 @@ $(document).ready(function () {
             }
         }
     });
+   /* $('.calendar-slider').owlCarousel({
+        loop: false,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        smartSpeed: 1000,
+        margin: 10,
+        center: true,
+        autoplayHoverPause: true,
+        mouseDrag: true,
+        touchDrag: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            991: {
+                items: 3
+            }
+        }
+    });*/
     
     // :: Add Class Active To Navbar (.gallery .list-name-gallery li)
     $('.case-study-list .list-name-case li').on('click', function () {
@@ -558,7 +582,7 @@ $(document).ready(function () {
 
 
     //Блок Услуги
-    $(".services-section-button").on('click', (e) => {
+    $(".services-sections-block .services-section-button").on('click', (e) => {
         e.preventDefault()
 
         let buttons = document.querySelectorAll('.services-section-button')
@@ -576,6 +600,34 @@ $(document).ready(function () {
 
         for (let i = 0; i < rows.length; i++) {
             rows[i].classList.remove('active')
+        }
+
+        let row = document.querySelector(`[data-number-row='${num}']`)
+        row.classList.add('active')
+    })
+
+
+
+    //DONATE
+    $(".donation .services-section-button").on('click', (e) => {
+        e.preventDefault()
+
+        let buttons = document.querySelectorAll('.services-section-button')
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active')
+        }
+
+        let target = e.currentTarget
+        target.classList.add('active');
+
+        let num = e.currentTarget.getAttribute("data-number");
+        let wrap = document.querySelector('.contact.donation');
+        let rows = wrap.querySelectorAll('.row.donate');
+
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].classList.remove('active');
+            rows[i].querySelector('form').reset();
         }
 
         let row = document.querySelector(`[data-number-row='${num}']`)
