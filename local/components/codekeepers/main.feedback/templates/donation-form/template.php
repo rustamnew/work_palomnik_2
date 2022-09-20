@@ -1,6 +1,15 @@
 <?
 	require_once 'YooKassa/lib/autoload.php';
 	use YooKassa\Client;
+
+	require 'PHPMailer/src/Exception.php';
+	require 'PHPMailer/src/PHPMailer.php';
+	require 'PHPMailer/src/SMTP.php';
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	$mailto = 'info@moy-hram.ru';
+	
+
 if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix vars
@@ -12,7 +21,6 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
  * @global CUser $USER
  */
 ?>
-
 <?
 $nameReq;
 $phoneReq;
@@ -55,10 +63,19 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 		</div>
 
 		<ul class="services-sections-list">
-			<li><a href="#" class="btn-1 services-section-button" data-number="1" >Записки</a></li>
-			<li><a href="#" class="btn-1 services-section-button" data-number="2" >Иконостас</a></li>
+			<li><a href="#" class="btn-1 services-section-button donate-block__button" data-number="1" >Записки</a></li>
+			<li><a href="#" class="btn-1 services-section-button donate-block__button" data-number="2" >Помочь храму</a></li>
 		</ul>
 
+		<p class="donate-block__text">
+			Братья и сестры, просим внимательно относиться к заказу поминовений!<br />
+			Общие правила:<br />
+			Принимаются имена только крещеных христиан православного вероисповедания.<br />
+			
+			1. Если вы точно знаете, что человек не крещен в православии, то его имя нельзя подавать на поминовение.<br />
+			2. Если у вас возникли какие-либо сомнения относительно людей, имена которых вы бы хотели подать для поминовения в храме, в окне примечаний обязательно кратко опишите ситуацию.<br />
+			3. Поминания не подают за тех, кто не является членом Православной Церкви: за некрещеных, инославных, иноверных, за самоубийц, за убежденных атеистов и богоборцев, даже если они были крещены.<br />
+		</p>
 
 		<div class="row donate active" data-number-row="1">
 			<div class="col-md-10 offset-md-1">
@@ -66,12 +83,7 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 					<div class="row quote">
 						<div class="col-md-12">
 							<div class="quote-item">
-								<select name="name1" id="note" 
-									style="width: 100%;
-									height: 100%;
-									background: transparent;
-									border: none;
-									">
+								<select class="donate-block__select" name="name1" id="note">
 									<?$APPLICATION->IncludeComponent(
 										"codekeepers:news.list",
 										"notes",
@@ -133,14 +145,14 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 						</div>
 						<div class="col-md-12">
 							<div class="quote-item">
-								<input style="padding-top: 0;" type="text" name="sum1" value="" class="email" placeholder="<?=$arParams["PLACEHOLDER_PHONE"]?>" required>
+								<input style="padding-top: 0;" type="number" name="sum1" value="" class="email donate-block__input" placeholder="<?=$arParams["PLACEHOLDER_PHONE"]?>" required>
 							</div>
 						</div>
 
 						<div class="col-md-12">
 							<div class="quote-item">
 								
-								<textarea style="padding-top: 0;" name="names1" cols="40" rows="10" class="message" placeholder="<?=$arParams["PLACEHOLDER_MESSAGE"]?>" required></textarea>
+								<textarea style="padding-top: 0;" name="names1" cols="40" rows="10" class="message donate-block__input" placeholder="<?=$arParams["PLACEHOLDER_MESSAGE"]?>" required></textarea>
 							</div>
 
 							<?if($GLOBALS['global_info']['captcha_show']):?>
@@ -166,14 +178,14 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 					<div class="row quote">
 						<div class="col-md-12">
 							<div class="quote-item">
-								<input style="padding-top: 0;" type="text" name="sum2" value="" class="email" placeholder="<?=$arParams["PLACEHOLDER_PHONE"]?>" required>
+								<input style="padding-top: 0;" type="number" name="sum2" value="" class="email donate-block__input" placeholder="<?=$arParams["PLACEHOLDER_PHONE"]?>" required>
 							</div>
 						</div>
 
 						<div class="col-md-12">
 							<div class="quote-item">
 								
-								<textarea style="padding-top: 0;" name="names2" cols="40" rows="10" class="message" placeholder="<?=$arParams["PLACEHOLDER_MESSAGE"]?>" required></textarea>
+								<textarea style="padding-top: 0;" name="names2" cols="40" rows="10" class="message donate-block__input" placeholder="<?=$arParams["PLACEHOLDER_MESSAGE"]?>" required></textarea>
 							</div>
 
 							<?if($GLOBALS['global_info']['captcha_show']):?>
@@ -196,18 +208,57 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 <?if($_POST["name1"] or $_POST["sum1"] or $_POST["names1"]):?>
 
 	<?
+	$name1 = "не определено";
+	$sum1 = "не определен";
+	$names1 = "не определен";
+	
+	if (isset($_POST["name1"])) $name1 = $_POST["name1"];
+	if (isset($_POST["sum1"])) $sum1 = $_POST["sum1"];
+	if (isset($_POST["names1"])) $names1 = $_POST["names1"];
+	
+	$mail = new PHPMailer;
+	$mail->CharSet = 'UTF-8';
+	
+	// Настройки SMTP
+	$mail->isSMTP();
+	$mail->SMTPAuth = true;
+	$mail->SMTPDebug = 0;
+	$mail->SMTPOptions = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
+	$mail->Host = 'ssl://smtp.yandex.ru';
+	$mail->Port = 465;
+	$mail->Username = 'codekeepers.studio@yandex.ru';
+	$mail->Password = 'BZWD5ZAH^biz*51A';
+	
+	// От кого
+	$mail->setFrom('codekeepers.studio@yandex.ru', 'Cайт moy-hram.ru');
+	// Кому
+	$mail->addAddress($mailto, 'Смертин Игорь Васильевич');
+	// Тема письма
+	$mail->Subject = "Новое пожертвование";
+	// Тело письма
+	$body = '<p><strong>Новое пожертвование на сайте moy-hram.ru </strong></p>';
+	$body = $body . "<br>Записка: " . $name1;
+	$body = $body . "<br>Сумма: " . $sum1;
+	$body = $body . "<br>Имена поминаемых: " . $names1;
+	
+	$mail->msgHTML($body);
+	
+	$mail->send();
+	?>
+
+	<?
 	$client = new Client();
 	$client->setAuth('780285', 'live_gWlIBwIamZdOYCO7nkQtjD4dZUGiPwNCRAkqCbHfeu4');
-
 	$idempotenceKey = uniqid('', true);
-
 	$number1 = number_format($_POST["sum1"], 2, '.', '');
-
-	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
+	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"/*. "?success=Y" . "&name1=".$_POST["name1"] . "&sum1=".$number1 . "&names1=".$_POST["names1"]*/;
 	$description = $_POST["name1"].' '.$_POST["names1"];
-
-
 	$response = $client->createPayment(
 		array(
 			'amount' => array(
@@ -225,11 +276,9 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 		),
 		$idempotenceKey
 	);
-
 	$confirmationUrl = $response->getConfirmation()->getConfirmationUrl();
 	$_POST = '';
 	if ($confirmationUrl) {
-		
 		header("Location: ".$confirmationUrl);
 		die();
 	}
@@ -241,6 +290,51 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 
 <?if($_POST["sum2"] or $_POST["names2"]):?>
 	<?
+	$sum2 = "не определен";
+	$names2 = "не определен";
+	
+	if (isset($_POST["sum2"])) $sum2 = $_POST["sum2"];
+	if (isset($_POST["names2"])) $names2 = $_POST["names2"];
+
+	$mail = new PHPMailer;
+	$mail->CharSet = 'UTF-8';
+	
+	// Настройки SMTP
+	$mail->isSMTP();
+	$mail->SMTPAuth = true;
+	$mail->SMTPDebug = 0;
+	$mail->SMTPOptions = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
+	$mail->Host = 'ssl://smtp.yandex.ru';
+	$mail->Port = 465;
+	$mail->Username = 'codekeepers.studio@yandex.ru';
+	$mail->Password = 'BZWD5ZAH^biz*51A';
+	
+	// От кого
+	$mail->setFrom('codekeepers.studio@yandex.ru', 'Cайт moy-hram.ru');
+	// Кому
+	$mail->addAddress($mailto, 'Смертин Игорь Васильевич');
+	// Тема письма
+	$mail->Subject = "Новое пожертвование";
+	// Тело письма
+	$body = '<p><strong>Новое пожертвование на сайте moy-hram.ru </strong></p>';
+	$body = $body . "<br>Помощь храму";
+	$body = $body . "<br>Сумма: " . $sum2;
+	$body = $body . "<br>Имена поминаемых: " . $names2;
+
+	$mail->msgHTML($body);
+	$mail->send();
+	?>
+
+
+
+
+	<?
 	$client = new Client();
 	$client->setAuth('780285', 'live_gWlIBwIamZdOYCO7nkQtjD4dZUGiPwNCRAkqCbHfeu4');
 
@@ -250,7 +344,7 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 
 	$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-	$description = 'Иконостас '.$_POST["names2"];
+	$description = 'Помощь храму '.$_POST["names2"];
 
 
 	$response = $client->createPayment(
@@ -280,10 +374,3 @@ foreach($arParams["REQUIRED_FIELDS"] as $item):?>
 	}
 	?>
 <?endif;?>
-
-
-
-
-
-
-

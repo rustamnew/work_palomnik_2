@@ -1064,10 +1064,11 @@ p {
     margin-top: 30px;
 }
 
-.about .one {
+/*
+.about .one{
     margin-top: 28px;
 }
-
+*/
 .about-2 .img-box {
     position: relative;
     padding-bottom: 40px;
@@ -5632,4 +5633,30 @@ form#feedback-form-contacts .captcha-wrap {
 
 .days-image img {
     height: 200px;
+}
+
+.col-videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col-videos iframe {
+    width: 750px !important;
+    height: 450px !important;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .col-videos iframe {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+    .table-cell {
+        height: 60vh;
+    }
+}
+.py-70-0 {
+    padding: 70px 0 0;
 }

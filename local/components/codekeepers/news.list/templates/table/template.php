@@ -58,7 +58,7 @@ $this->setFrameMode(true);
 
 			<td class="table_item<?if ($arItem["PROPERTIES"]["red"]["VALUE"] == 'Y'):?> red<?endif;?>">	
 				<p>
-					<span><?echo FormatDate("G:i", MakeTimeStamp($arItem["PROPERTIES"]["date"]["VALUE"]));?></span>
+					<span><?=$arItem["PROPERTIES"]["time"]["VALUE"]["TEXT"];?></span>
 				</p>
 			</td>
 		</tr>

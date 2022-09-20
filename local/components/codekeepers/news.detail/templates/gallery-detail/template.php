@@ -14,6 +14,37 @@ $this->setFrameMode(true);
 ?>
 
 
+<?if ($arParams['slider'] === 'Y'):?>
+
+<section class="case-study py-100">
+	<div class="container">
+		<div class="sec-title">
+			<div class="row">
+				<div class="col-lg-5">
+                    <?if($arResult["PROPERTIES"]["name"]["VALUE"]):?><h2><?=$arResult["PROPERTIES"]["name"]["VALUE"]?></h2><?endif;?>
+                    <?if($arResult["PROPERTIES"]["title"]["VALUE"]):?><h3><?=$arResult["PROPERTIES"]["title"]["VALUE"]?></h3><?endif;?>
+				</div>
+				<div class="col-lg-5 d-flex align-items-center">
+                    <?if($arResult["PROPERTIES"]["subtitle"]["VALUE"]):?><p><?=$arResult["PROPERTIES"]["subtitle"]["VALUE"]?></p><?endif;?>
+				</div>
+			</div>
+		</div>
+		<div class="owl-gallery owl-carousel owl-theme gallery-slider">
+            <?foreach($arResult["PROPERTIES"]["images"]["VALUE"] as $arItem):?>
+                <?$path = CFile::GetPath($arItem);?>
+
+                <div class="case-item" 
+                    data-fancybox="gallery" 
+                    data-src="<?=$path;?>">
+
+                    <img class="gallery-item-img" src="<?=$path;?>" alt="01 Case Study" loading="lazy">
+				</div>
+			<?endforeach;?>
+		</div>
+	</div>
+</section>
+
+<?else:?>
 
 <section class="case-study case-study-page gallery-page py-100">
 	<div class="container">
@@ -25,22 +56,15 @@ $this->setFrameMode(true);
 
 		<div class="licence-list-grid">
 			<?foreach($arResult["PROPERTIES"]["images"]["VALUE"] as $arItem):?>
-				<a data-fancybox="gallery" data-src="<?echo CFile::GetPath($arItem);?>" data-caption="<?=$arItem["NAME"]?>" class="gallery-gridify-item">
-					<img id="<?=$this->GetEditAreaId($arItem['ID']);?>" src="<?echo CFile::GetPath($arItem);?>" alt="image" loading="lazy">
+                <?$path = CFile::GetPath($arItem);?>
+                
+				<a data-fancybox="gallery" data-src="<?=$path;?>" class="gallery-gridify-item">
+					<img id="<?=$arItem;?>" src="<?=$path?>" alt="image" loading="lazy">
 				</a>
 			<?endforeach;?>
 		</div>
 	</div>
 </section>
-
-
-
-
-
-
-
-
-
 
 
 <script>
@@ -162,3 +186,5 @@ $this->setFrameMode(true);
 
     gallery(width, margin)
 </script>
+
+<?endif;?>

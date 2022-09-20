@@ -132,7 +132,7 @@ $theme-color1: #2652DC;
     
     
         .header .banner .handline {
-            font-size: 37px;
+            font-size: 34px;
         }
         .sec-title h3 {
             font-size: 29px;
@@ -140,6 +140,8 @@ $theme-color1: #2652DC;
         .header .banner .headline-top {
             font-weight: 400;
             font-size: 15px;
+
+            margin-top: 200px;
         }
         .header .banner .about-website {
             font-size: 15px;
@@ -383,9 +385,9 @@ $theme-color1: #2652DC;
         display: none;
     }
     /* :: Header */
-    .banner .handline {
+    /*.banner .handline {
         font-size: 48px;
-    }
+    }*/
     .single-practice-areas .faq-box button span{
         width: 100%;
         margin-bottom: 10px;
